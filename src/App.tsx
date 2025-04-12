@@ -1,12 +1,14 @@
+import { Heading } from './components/Heading';
+
 import './styles/theme.css';
 import './styles/global.css';
 
 function App() {
-    console.log("OI")
+    console.log("Oi")
 
     return (
     <div>
-        <h1>Olá Mundo! (do App)</h1>
+        <Heading/>
         <p>
             Este é um exemplo de aplicação React com TypeScript e Vite.
             <br />
