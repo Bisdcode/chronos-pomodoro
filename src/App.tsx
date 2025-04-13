@@ -8,7 +8,7 @@ function App() {
 
     return (
     <div>
-        <Heading/>
+        <Heading attr={123} attr2='String'>Olá mundo!</Heading>
         <p>
             Este é um exemplo de aplicação React com TypeScript e Vite.
             <br />
