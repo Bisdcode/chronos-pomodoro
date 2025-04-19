@@ -1,36 +1,18 @@
 import "./styles/theme.css";
 import "./styles/global.css";
 
-function App() {
+import { Container } from "./components/Container";
+import { Heading } from "./components/Heading";
+
+export function App() {
 	return (
 		<>
-			<div className="container">
-				<div className="content">
-					<section>LOGO...</section>
-				</div>
-			</div>
-
-			<div className="container-fluid">
-				<div className="container">
-					<div className="content">
-						<section>Menu...</section>
-					</div>
-				</div>
-			</div>
-			<div className="container-fluid">
-				<div className="container">
-					<div className="content">
-						<section>FORM...</section>
-					</div>
-				</div>
-			</div>
-			<div className="container-fluid">
-				<div className="container">
-					<div className="content">
-						<section>Footer...</section>
-					</div>
-				</div>
-			</div>
+			<Container>
+				<Heading>LOGO</Heading>
+			</Container>
+			<Container>
+				<Heading>MENU</Heading>
+			</Container>
 		</>
 	);
 }
