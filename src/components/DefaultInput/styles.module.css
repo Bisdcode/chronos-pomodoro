@@ -22,6 +22,6 @@ input::placeholder {
 }
 
 .input:disabled {
-    border-bottom: .2rem solid var(--disabled);
+    border-bottom: 0.2rem solid var(--disabled);
     color: var(--text-muted);
 }
