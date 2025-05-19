@@ -1,7 +1,5 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
 export function CountDown() {
-	return <div className={styles.container}>
-		00:00
-	</div>;
+  return <div className={styles.container}>00:00</div>
 }
