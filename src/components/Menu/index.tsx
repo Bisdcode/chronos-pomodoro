@@ -1,6 +1,6 @@
 import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from "lucide-react";
 import styles from "./styles.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type AvailableThemes = "light" | "dark";
 
@@ -12,8 +12,28 @@ export function Menu() {
 	) {
 		event.preventDefault();
 
-		console.log("Clicado", Date.now());
+		setTheme((prevTheme) => {
+			const nextTheme = prevTheme === "dark" ? "light" : "dark";
+			return nextTheme;
+		});
 	}
+
+	// useEffect(() => {
+	// 	console.log("", Date.now());
+	// }); // Executando todas as vezes que o componente renderiza na tela
+
+	// useEffect(() => {
+	// 	console.log("", Date.now());
+	// }, []); // Executando apenas quando o React monta o componente na tela pela primeira vez
+
+	useEffect(() => {
+		console.log("Theme mudou", theme, Date.now());
+		document.documentElement.setAttribute("data-theme", theme);
+
+		return () => {
+			console.log("Olha, este componente será atualizado, função de limpeza");
+		};
+	}, [theme]); // Executando apenas quando o valor de Theme mudar
 
 	return (
 		<nav className={styles.menu}>
