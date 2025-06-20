@@ -4,6 +4,7 @@ import { MainForm } from "../../components/Mainform/Index";
 import { MainTemplate } from "../../templates/MainTemplate";
 
 export function Home() {
+
     return (
         <MainTemplate>
             <Container>
