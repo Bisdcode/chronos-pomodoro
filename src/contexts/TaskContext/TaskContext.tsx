@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { TaskStateModel } from "../../models/TaskStateModel";
-import { initialTastkState } from "./initialTaskState";
+import { initialTaskState } from "./initialTaskState";
 
 type TaskContextProps = {
     state: TaskStateModel;
@@ -8,7 +8,7 @@ type TaskContextProps = {
 }
 
 const initialContextValue = {
-    state: initialTastkState,
+    state: initialTaskState,
     setState: () => { },
 }
 
