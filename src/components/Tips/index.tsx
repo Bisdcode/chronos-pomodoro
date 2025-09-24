@@ -5,7 +5,7 @@ import { getNextCycleType } from "../../utils/getNextCycleType";
 export function Tips() {
     const { state } = useTaskContext();
     const nextCycle = getNextCycle(state.currentCycle);
-    console.log(nextCycle)
+    // console.log(nextCycle)
     const nextCycleType = getNextCycleType(nextCycle);
 
     //Tips

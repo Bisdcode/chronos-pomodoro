@@ -9,6 +9,7 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { TaskActionsTypes } from "../../contexts/TaskContext/taskActions";
 import { Tips } from "../Tips";
+import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -16,7 +17,7 @@ export function MainForm() {
 
   // ciclos
   const nextCycle = getNextCycle(state.currentCycle);
-  console.log(nextCycle)
+  // console.log(nextCycle)
   const nextCycleType = getNextCycleType(nextCycle);
 
   function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
@@ -42,7 +43,21 @@ export function MainForm() {
     }
 
     dispatch({ type: TaskActionsTypes.START_TASK, payload: newTask });
+
+    const worker = TimerWorkerManager.getInstance();
+
+    worker.postMessage('FAVOR'); // Sim, posso fazer um favor
+    worker.postMessage('FALA_OI'); // Sim, posso fazer um favor
+    worker.postMessage('BLABLABLA'); // Sim, posso fazer um favor
+    // worker.postMessage('FECHAR'); // Sim, posso fazer um favor
+
+
+    worker.onmessage(event => {
+      console.log('PRINCIPAL recebeu: ', event.data);
+      // worker.terminate(); // Encerra e inicia o worker toda vez que iniciar uma nova tarefa
+    })
   }
+
 
   function handleInterruptTask(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 
